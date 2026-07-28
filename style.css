@@ -1,13 +1,8 @@
 :root {
-  --cream: #f3eee5;
-  --cream-light: #fbf8f2;
   --paper: #fffdf8;
   --sage: #7f8d78;
   --sage-dark: #4f5d4b;
-  --text: #2f352e;
-  --muted: #747b71;
-  --line: rgba(79, 93, 75, 0.14);
-  --shadow: 0 8px 24px rgba(68, 75, 64, 0.1);
+  --caption: #45493f;
 }
 
 * {
@@ -17,70 +12,50 @@
 body {
   margin: 0;
   background: transparent;
-  color: var(--text);
   font-family: "DM Sans", sans-serif;
 }
 
 .widget {
-  width: 100%;
-  max-width: 600px;
-  padding: 12px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.58),
-      rgba(243, 238, 229, 0.94)
-    );
-  box-shadow: var(--shadow);
-}
-
-.widget-heading {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin: 0 3px 10px;
-}
-
-.eyebrow {
-  display: block;
-  margin-bottom: 2px;
-  color: var(--sage);
-  font-size: 0.59rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.widget-heading h1 {
-  margin: 0;
-  color: var(--sage-dark);
-  font-family: "Playfair Display", serif;
-  font-size: 1.08rem;
-  font-weight: 700;
-  line-height: 1.1;
-}
-
-.camera-icon {
-  flex: 0 0 auto;
-  font-size: 1.15rem;
-  line-height: 1;
+  justify-content: center;
+  width: 100%;
+  padding: 55px 34px;
 }
 
 .polaroid {
   width: min(100%, 430px);
-  margin: 0 auto;
-  padding: 10px 10px 8px;
-  border: 1px solid rgba(70, 70, 60, 0.1);
+  padding: 22px 18px 18px;
+  border: 1px solid rgba(70, 70, 60, 0.11);
   border-radius: 3px;
   background: var(--paper);
   box-shadow:
-    0 7px 18px rgba(62, 66, 57, 0.13),
-    inset 0 0 18px rgba(121, 110, 88, 0.025);
+    0 12px 28px rgba(62, 66, 57, 0.15),
+    inset 0 0 20px rgba(121, 110, 88, 0.025);
+}
+
+.polaroid-heading {
+  margin: 0 4px 17px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--sage);
+  font-size: 0.59rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.polaroid-heading h1 {
+  margin: 0;
+  color: var(--sage-dark);
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.1;
 }
 
 .photo {
@@ -94,11 +69,11 @@ body {
 }
 
 .caption {
-  min-height: 32px;
-  margin: 5px 8px 0;
-  color: #45493f;
+  min-height: 42px;
+  margin: 10px 10px 0;
+  color: var(--caption);
   font-family: "Caveat", cursive;
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 500;
   line-height: 1.05;
   text-align: center;
@@ -106,33 +81,32 @@ body {
 
 @media (max-width: 420px) {
   .widget {
-    padding: 9px;
-    border-radius: 16px;
+    padding: 48px 26px;
   }
 
-  .widget-heading {
-    margin-bottom: 8px;
+  .polaroid {
+    padding: 18px 14px 14px;
+  }
+
+  .polaroid-heading {
+    margin-bottom: 14px;
   }
 
   .eyebrow {
     font-size: 0.52rem;
   }
 
-  .widget-heading h1 {
-    font-size: 1rem;
-  }
-
-  .polaroid {
-    padding: 8px 8px 6px;
+  .polaroid-heading h1 {
+    font-size: 1.08rem;
   }
 
   .photo {
-    max-height: 420px;
+    max-height: 430px;
   }
 
   .caption {
-    min-height: 28px;
-    margin-top: 4px;
-    font-size: 1.18rem;
+    min-height: 36px;
+    margin-top: 8px;
+    font-size: 1.28rem;
   }
 }
