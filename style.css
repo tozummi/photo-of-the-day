@@ -19,7 +19,7 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 55px 34px;
+  padding: 12px 34px;
 }
 
 .polaroid {
@@ -81,7 +81,7 @@ body {
 
 @media (max-width: 420px) {
   .widget {
-    padding: 48px 26px;
+  padding: 12px 26px;
   }
 
   .polaroid {
