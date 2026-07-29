@@ -53,6 +53,41 @@
     </article>
 
   </main>
+<script>
+  function sendWidgetHeight() {
+    const widget = document.querySelector(".widget");
 
+    if (!widget) return;
+
+    const height = Math.ceil(widget.getBoundingClientRect().height);
+
+    window.parent.postMessage(
+      {
+        type: "photo-widget-height",
+        height: height
+      },
+      "*"
+    );
+  }
+
+  window.addEventListener("load", sendWidgetHeight);
+  window.addEventListener("resize", sendWidgetHeight);
+
+  const photo = document.querySelector(".photo");
+
+  if (photo) {
+    if (photo.complete) {
+      sendWidgetHeight();
+    }
+
+    photo.addEventListener("load", sendWidgetHeight);
+  }
+
+  const widget = document.querySelector(".widget");
+
+  if (widget && "ResizeObserver" in window) {
+    new ResizeObserver(sendWidgetHeight).observe(widget);
+  }
+</script>
 </body>
 </html>
