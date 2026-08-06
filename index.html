@@ -40,20 +40,43 @@
         <h1>Photo of the Day</h1>
       </header>
 
-      <!-- CHANGE THIS IMAGE -->
+      <!-- CHANGE THIS CAPTION -->
       <img
         id="photo"
         alt="Family photo of the day"
         class="photo"
       >
 
-      <!-- CHANGE THIS CAPTION -->
       <p class="caption">Making memories together ♡</p>
 
     </article>
 
   </main>
+
 <script>
+  const photo = document.getElementById("photo");
+
+  const sources = [
+    "photo-of-the-day.jpg",
+    "photo-of-the-day.jpeg",
+    "photo-of-the-day.JPG",
+    "photo-of-the-day.JPEG",
+    "photo-of-the-day.png",
+    "photo-of-the-day.PNG",
+    "photo-of-the-day.webp",
+    "photo-of-the-day.WEBP"
+  ];
+
+  function loadPhoto(index = 0) {
+    if (index >= sources.length) return;
+
+    photo.src = sources[index];
+
+    photo.onerror = () => loadPhoto(index + 1);
+  }
+
+  loadPhoto();
+
   function sendWidgetHeight() {
     const widget = document.querySelector(".widget");
 
@@ -73,8 +96,6 @@
   window.addEventListener("load", sendWidgetHeight);
   window.addEventListener("resize", sendWidgetHeight);
 
-  const photo = document.querySelector(".photo");
-
   if (photo) {
     if (photo.complete) {
       sendWidgetHeight();
@@ -89,5 +110,6 @@
     new ResizeObserver(sendWidgetHeight).observe(widget);
   }
 </script>
+
 </body>
 </html>
